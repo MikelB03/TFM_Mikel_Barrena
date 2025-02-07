@@ -1,0 +1,38 @@
+HEADERS = emx_codegen.h emx_codegen_intern.h emx_codegen_rand.h
+OBJECTS = emx_codegen.o emx_codegen_rand.o _frenoEmergencia.o _inputs.o _outputs.o _scenario.o
+TARGET = _scenario
+COPYLIBFILES = 1
+CODEGENLIBPATH = /srv/www/codegen.service.emmtrix.com/install/20220429/CodeGenLib
+
+LIBS = -lm
+CC = gcc
+CXX = g++
+CFLAGS = -g -Wall -Wno-unused-function -Wno-unknown-pragmas -Wno-maybe-uninitialized -Wno-unused-but-set-variable -Wno-strict-aliasing -Wno-overflow -O3 -std=c99 ${CFLAGS_ADD}
+CXXFLAGS = -g -Wall -Wno-unused-function -Wno-unknown-pragmas -Wno-maybe-uninitialized -Wno-unused-but-set-variable -Wno-strict-aliasing -Wno-overflow -O3  ${CXXFLAGS_ADD}
+CPPFLAGS =  ${CPPFLAGS_ADD}
+LDFLAGS =  ${LDFLAGS_ADD}
+
+ifeq (${COPYLIBFILES}, 0)
+	override VPATH := ${CODEGENLIBPATH}:${VPATH}
+	CPPFLAGS := ${CPPFLAGS} -I${CODEGENLIBPATH}
+endif
+
+.PHONY: default all clean
+
+default: $(TARGET)
+all: default
+
+%.o: %.c $(HEADERS)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
+
+%.o: %.cpp $(HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
+	
+.PRECIOUS: $(TARGET) $(OBJECTS)
+
+$(TARGET): $(OBJECTS)
+	$(CC) $(OBJECTS) $(LDFLAGS) $(LIBS) -o $@
+
+clean:
+	-rm -f *.o
+	-rm -f $(TARGET)
