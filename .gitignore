@@ -1,0 +1,37 @@
+
+#
+# Normal rules
+#
+.*
+*.o
+*.o.*
+*.a
+*.s
+*.elf
+*.bin
+*.tar
+*.gz
+*.log
+
+#
+# Debug files
+#
+/Debug
+
+#
+# Generated files
+#
+/ra_gen
+/ra_cfg
+/ra
+
+#
+# git files that we don't want to ignore even if they are dot-files
+#
+!.gitignore
+!.mailmap
+!.cocciconfig
+!.project
+!.cproject
+!.secure_azone
+!.secure_xml
