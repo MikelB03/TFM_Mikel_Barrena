@@ -1,0 +1,39 @@
+#[doc = "Register `FEAML` reader"]
+pub type R = crate::R<FeamlSpec>;
+#[doc = "Register `FEAML` writer"]
+pub type W = crate::W<FeamlSpec>;
+#[doc = "Field `FEAML` reader - Flash Error Address Monitor Register L"]
+pub type FeamlR = crate::FieldReader<u16>;
+#[doc = "Field `FEAML` writer - Flash Error Address Monitor Register L"]
+pub type FeamlW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+impl R {
+    #[doc = "Bits 0:15 - Flash Error Address Monitor Register L"]
+    #[inline(always)]
+    pub fn feaml(&self) -> FeamlR {
+        FeamlR::new(self.bits)
+    }
+}
+impl W {
+    #[doc = "Bits 0:15 - Flash Error Address Monitor Register L"]
+    #[inline(always)]
+    pub fn feaml(&mut self) -> FeamlW<FeamlSpec> {
+        FeamlW::new(self, 0)
+    }
+}
+#[doc = "Flash Error Address Monitor Register L\n\nYou can [`read`](crate::Reg::read) this register and get [`feaml::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`feaml::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct FeamlSpec;
+impl crate::RegisterSpec for FeamlSpec {
+    type Ux = u16;
+}
+#[doc = "`read()` method returns [`feaml::R`](R) reader structure"]
+impl crate::Readable for FeamlSpec {}
+#[doc = "`write(|w| ..)` method takes [`feaml::W`](W) writer structure"]
+impl crate::Writable for FeamlSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u16 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u16 = 0;
+}
+#[doc = "`reset()` method sets FEAML to value 0"]
+impl crate::Resettable for FeamlSpec {
+    const RESET_VALUE: u16 = 0;
+}

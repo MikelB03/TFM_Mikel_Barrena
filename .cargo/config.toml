@@ -1,0 +1,9 @@
+[target.'cfg(all(target_arch = "riscv32", target_os = "none"))']
+ runner = "gdb-multiarch -q -x /home/ikerlan/sf/r9a02g021_rust/sf_rust/FrenoEmergencia/gdb_init" # Uncomment for hardware (no semihosting)
+
+rustflags = [
+    "-C", "link-arg=-Tmemory.x",
+]
+
+[build]
+target = "riscv32imac-unknown-none-elf"

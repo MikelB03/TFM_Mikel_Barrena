@@ -1,0 +1,6 @@
+[workspace]
+resolver = "2"
+members = [
+    "R9A02G021",
+    "FrenoEmergencia",
+]
