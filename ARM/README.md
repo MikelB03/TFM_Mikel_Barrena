@@ -1,1 +1,1 @@
-# CODIGOS PARA LA PLACA DE DESARROLLO EK-RA4M1
+# Códigos para la placa de desarrollo EK-RA4M1
